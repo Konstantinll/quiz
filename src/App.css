@@ -1,38 +1,213 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.main__bg {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
+}
+.bg {
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+}
+h1 {
+  text-align: center;
+  margin: 0;
+  padding-top: 50px;
+  padding-bottom: 80px;
+  font-size: 1.6rem;
+  line-height: 130%;
+  color: #45f3ff;
+}
+.thanks {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  height: 100vh;
+}
+.rad {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  width: 500px;
+}
+.rad_wrap {
+  display: flex;
+  padding: 5px 8px;
+  margin: 5px 4px;
+  width: 220px;
+  border: 1px solid #45f3ff25;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.rad_wrap:hover {
+  border: 1px solid #45f3ff;
+}
+.rad_wrap:focus-within {
+  border: 1px solid #45f3ff;
+}
+.btn {
+  margin: 50px 5px 0px 5px;
+  padding: 10px 25px;
+  width: 120px;
+  border: 0;
+  outline: none;
+  border-radius: 5px;
+  font-weight: 600;
+  background: #45f3ff;
+  cursor: pointer;
+}
+.btn:active {
+  margin-top: 51px;
+  width: 118px;
+  padding: 9px 24px;
+}
+.home_btn {
+  background: none;
+  padding: 9px 24px;
+  border: 1px solid #45f3ff;
+  color: #45f3ff;
+}
+label {
+  width: 100%;
+  height: 100%;
+  color: #45f3ff;
 }
 
-.App-link {
-  color: #61dafb;
+textarea {
+  display: none;
+  visibility: hidden;
+}
+.input_box {
+  position: relative;
+  width: 300px;
+  margin-top: 30px;
+}
+.input_box input {
+  position: relative;
+  width: 100%;
+  padding: 20px 10px 10px;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #23242a;
+  font-size: 0.9rem;
+  letter-spacing: 0.05rem;
+  z-index: 10;
+}
+.input_box span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 20px 10px 10px;
+  font-size: 0.9rem;
+  color: #8f8f8f;
+  pointer-events: none;
+  letter-spacing: 0.05rem;
+  transition: 0.5s;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+input:valid ~ span,
+input:focus ~ span {
+  color: #45f3ff;
+  transform: translateY(-36px);
+}
+
+.input_box i {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 4px;
+  background: #45f3ff;
+  border-radius: 4px;
+  transition: 0.5s;
+  pointer-events: none;
+}
+
+input:valid ~ i,
+input:focus ~ i {
+  height: 40px;
+  z-index: 9;
+}
+
+input[type="radio"]:checked,
+input[type="radio"]:not(:checked) {
+  position: absolute;
+  left: -9999px;
+}
+
+input[type="radio"]:checked + label,
+input[type="radio"]:not(:checked) + label {
+  display: inline-block;
+  position: relative;
+  padding-left: 28px;
+  line-height: 20px;
+  cursor: pointer;
+}
+
+input[type="radio"]:checked + label:before,
+input[type="radio"]:not(:checked) + label:before {
+  content: "";
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 18px;
+  height: 18px;
+  border: 1px solid #45f3ff;
+  background-color: #23232a;
+}
+
+input[type="radio"]:checked + label:before,
+input[type="radio"]:not(:checked) + label:before {
+  border-radius: 100%;
+}
+
+input[type="radio"]:checked + label:after,
+input[type="radio"]:not(:checked) + label:after {
+  content: "";
+  position: absolute;
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+input[type="radio"]:checked + label:after,
+input[type="radio"]:not(:checked) + label:after {
+  left: 5.5px;
+  top: 5.5px;
+  width: 9px;
+  height: 9px;
+  border-radius: 100%;
+  background-color: #45f3ff;
+}
+
+input[type="radio"]:not(:checked) + label:after {
+  opacity: 0;
+}
+
+input[type="radio"]:checked + label:after {
+  opacity: 1;
+}
+
+@media screen and (max-width: 768px) {
+  h1 {
+    font-size: 1.4rem;
   }
-  to {
-    transform: rotate(360deg);
+  label {
+    font-size: 0.8rem;
+  }
+}
+@media screen and (max-width: 430px) {
+  h1 {
+    font-size: 1.2rem;
+  }
+  .rad {
+    width: 300px;
+    flex-direction: column;
+  }
+  .btn {
+    font-size: 0.7rem;
   }
 }

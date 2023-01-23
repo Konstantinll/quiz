@@ -1,13 +1,95 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  background: #23232a;
+  font-family: "Montserrat", sans-serif;
+}
+.box {
+  position: relative;
+  align-items: center;
+  width: 700px;
+  height: 400px;
+  background: #1c1c1c;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.box::before {
+  content: "";
+  position: absolute;
+  left: -50%;
+  top: -50%;
+  width: 700px;
+  height: 400px;
+  background: linear-gradient(0deg, transparent, #45f3ff, #45f3ff);
+  transform-origin: bottom right;
+  animation: animate 6s linear infinite;
+}
+.box::after {
+  content: "";
+  position: absolute;
+  left: -50%;
+  top: -50%;
+  width: 700px;
+  height: 400px;
+  background: linear-gradient(0deg, transparent, #45f3ff, #45f3ff);
+  transform-origin: bottom right;
+  animation: animate 6s linear infinite;
+  animation-delay: -3s;
+}
+@keyframes animate {
+  0% {
+    transform: ratate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+form {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: absolute;
+  inset: 2px;
+  border-radius: 8px;
+  background: #28292d;
+  z-index: 10;
+  padding: 30px 40px;
+  display: flex;
+  flex-direction: column;
+}
+form h2 {
+  font-size: 1.4rem;
+  color: #45f3ff;
+  text-align: center;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@media screen and (max-width: 768px) {
+  form h2 {
+    font-size: 1.2rem;
+  }
+}
+@media screen and (max-width: 430px) {
+  form h2 {
+    font-size: 1rem;
+  }
+  .box {
+    width: 360px;
+    height: 500px;
+  }
+  .box::before {
+    width: 360px;
+    height: 500px;
+  }
+  .box::after {
+    width: 360px;
+    height: 500px;
+  }
+  body {
+    min-height: 800px;
+  }
 }
